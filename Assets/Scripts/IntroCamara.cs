@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class IntroCamara : MonoBehaviour
 {
@@ -15,12 +16,35 @@ public class IntroCamara : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame){
-            if (indice < views.Length - 1){
-                indice++;
-                currentView = views[indice];
-            }
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            AvanzarVista();
         }
+    }
+
+    public void AvanzarVista()
+    {
+        if (views == null || views.Length == 0)
+            return;
+
+        if (indice >= views.Length - 1)
+        {
+            IrASeleccion();
+            return;
+        }
+
+        indice++;
+        currentView = views[indice];
+    }
+
+    public void OmitirIntro()
+    {
+        IrASeleccion();
+    }
+
+    private void IrASeleccion()
+    {
+        SceneManager.LoadScene("SaveSelection");
     }
 
     private void LateUpdate()
