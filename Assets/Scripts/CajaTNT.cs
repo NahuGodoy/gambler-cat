@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CajaTNT : MonoBehaviour
 {
-    // Todas las cajas activas de la escena (para la reaccion en cadena)
+    
     private static readonly List<CajaTNT> todas = new List<CajaTNT>();
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
@@ -54,8 +54,11 @@ public class CajaTNT : MonoBehaviour
             textoCuenta.gameObject.SetActive(false);
     }
 
-    // Trigger fino sobre la cara superior de la caja
-    private void OnTriggerEnter(Collider other)
+    
+    private void OnTriggerEnter(Collider other) { IntentarActivar(other); }
+    private void OnTriggerStay(Collider other) { IntentarActivar(other); }
+
+    private void IntentarActivar(Collider other)
     {
         if (activada || explotada) return;
         if (other.GetComponentInParent<PlayerHealth>() == null) return;
