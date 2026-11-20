@@ -37,6 +37,10 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        if (animator != null)
+        {
+            animator.applyRootMotion = false;
+        }
     }
 
     public void TeleportTo(Vector3 position, Quaternion rotation)
