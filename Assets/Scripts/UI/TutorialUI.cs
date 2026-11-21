@@ -8,7 +8,9 @@ public class TutorialUI : MonoBehaviour
     {
         Movimiento,
         Salto,
-        Correr
+        Correr,
+        Monedas,
+        Vida
     }
 
     public TipoTutorial tipoTutorial;
@@ -16,7 +18,16 @@ public class TutorialUI : MonoBehaviour
     public TutorialUI tutorialPadre;
     public GameObject panel;
 
+    [Header("Inventario")]
+    [Tooltip("Opcional: panel del inventario. Si se asigna, el paso se completa cuando se abre.")]
+    [SerializeField] private GameObject panelInventario;
+    [Tooltip("Si no hay panel asignado, el paso se completa al apretar esta tecla.")]
+    [SerializeField] private Key teclaInventario = Key.I;
+
     private bool tutorialTerminado = false;
+    private EnemyHealth[] enemigosAlEmpezar;
+    private bool saltoEnSuelo;
+    private bool powerUpActivoAlEmpezar;
 
     private void Start()
     {
@@ -45,6 +56,17 @@ public class TutorialUI : MonoBehaviour
 
     public void empezarTutorial()
     {
+        saltoEnSuelo = false;
+
+        if (tipoTutorial == TipoTutorial.EliminarEnemigo)
+            enemigosAlEmpezar = FindObjectsByType<EnemyHealth>(FindObjectsInactive.Include);
+
+        if (tipoTutorial == TipoTutorial.PowerUp)
+        {
+            PlayerPowerUps p = FindAnyObjectByType<PlayerPowerUps>();
+            powerUpActivoAlEmpezar = p != null && p.HayPowerUpActivo;
+        }
+
         panel.SetActive(true);
         StartCoroutine(EsperarInput());
     }
@@ -65,6 +87,8 @@ public class TutorialUI : MonoBehaviour
 
     bool CondicionCompletada()
     {
+        Keyboard kb = Keyboard.current;
+        Gamepad pad = Gamepad.current;
         switch (tipoTutorial)
 {
             case TipoTutorial.Movimiento:
@@ -94,8 +118,25 @@ public class TutorialUI : MonoBehaviour
 
             return teclado_Correr || joystick_Correr;
 
+            case TipoTutorial.Monedas:
+                return playerInventory != null && playerInventory.cantFichas > 0;
+
+            case TipoTutorial.Vida:
+            return true;
+
             default:
                 return false;
 }
+    }
+    private bool SeEliminoUnEnemigo()
+    {
+        if (enemigosAlEmpezar == null) return false;
+
+        foreach (EnemyHealth enemigo in enemigosAlEmpezar)
+        {
+            if (enemigo == null) return true; 
+        }
+
+        return false;
     }
 }
