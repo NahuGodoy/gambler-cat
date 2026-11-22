@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public float walkSpeed = 5f;
     public float runSpeed = 8f;
     [HideInInspector] public float multiplicadorEvento = 1f; //esto de eventos
+    public bool dobleSaltoDesbloqueado => SaveManager.Instance != null && SaveManager.Instance.ActiveSave != null && SaveManager.Instance.ActiveSave.dobleSaltoComprado;
     public float jumpForce = 5f;
     public float maxJumpForce = 8f;
     public float maxJumpHoldTime = 0.25f;
@@ -36,6 +37,10 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        if (animator != null)
+        {
+            animator.applyRootMotion = false;
+        }
     }
 
     public void TeleportTo(Vector3 position, Quaternion rotation)
@@ -91,8 +96,10 @@ public class PlayerMovement : MonoBehaviour
         if (jumpRequested)
         {
             jumpRequested = false;
-            if (jumpsUsed < 2 && (isGrounded || jumpsUsed > 0))
+            int maxSaltos = dobleSaltoDesbloqueado ? 2 : 1;
+            if (jumpsUsed < maxSaltos && (isGrounded || jumpsUsed > 0))
             {
+                Debug.Log($"[Salto] EJECUTADO ({jumpsUsed + 1}/{maxSaltos})");
                 verticalVelocity = jumpForce;
                 plataformaActual = null; // Liberamos la plataforma al saltar
 
@@ -102,6 +109,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     animator.SetTrigger("Jump");
                 }
+            }
+            else
+            {
+                Debug.Log($"[Salto] RECHAZADO (usados={jumpsUsed}, max={maxSaltos})");
             }
         }
 
@@ -165,6 +176,7 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpRequested = true;
             jumpHeld = true;
+            Debug.Log($"[Salto] PRESIONADO | doble={dobleSaltoDesbloqueado} usados={jumpsUsed} suelo={controller.isGrounded || wasGrounded}");
         }
         else if (context.canceled)
         {
@@ -212,4 +224,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetTrigger("Jump");
         }
     }
+
+
 }

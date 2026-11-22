@@ -83,12 +83,12 @@ public class Tienda : MonoBehaviour
 
         
         if (Time.timeScale != 0f || !PauseMenu.JuegoEsPausado)
-        
-
-        Time.timeScale = 0f;
-        PauseMenu.JuegoEsPausado = true;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        {
+            Time.timeScale = 0f;
+            PauseMenu.JuegoEsPausado = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     public void Comprar(ItemTiendaInfo data)
@@ -124,6 +124,14 @@ public class Tienda : MonoBehaviour
             return;
         }
 
+        if (data.categoria == CategoriaItem.DobleSalto &&
+            PlayerMovement.Instance != null &&
+            PlayerMovement.Instance.dobleSaltoDesbloqueado)
+        {
+            Debug.Log("[Tienda] Ya tenés el doble salto");
+            return;
+        }
+
         if (!save.TrySpendFichas(data.precio))
         {
             Debug.Log("[Tienda] Error al gastar fichas en el guardado");
@@ -142,7 +150,7 @@ public class Tienda : MonoBehaviour
                 break;
 
             case CategoriaItem.DobleSalto:
-                // pendiente
+                save.SetDobleSalto(true);
                 break;
         }
         Debug.Log($"[Tienda] Compra exitosa de {data.nombre}");

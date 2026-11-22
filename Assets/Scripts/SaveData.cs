@@ -36,6 +36,7 @@ public class SaveData
     public bool tutorialCompleted;
     public bool map1Unlocked;
     public int totalFichas;
+    public bool dobleSaltoComprado;
     public List<BoolProgressEntry> unlockedMaps = new List<BoolProgressEntry>();
     public List<BoolProgressEntry> collectibles = new List<BoolProgressEntry>();
     public List<BoolProgressEntry> achievements = new List<BoolProgressEntry>();
@@ -192,4 +193,6 @@ public class SaveData
         }
         return count;
     }
+
+
 }

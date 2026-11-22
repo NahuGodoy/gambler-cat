@@ -779,6 +779,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d45a698b871faf9daadac2944e848710, type: 2}
   - {fileID: 11400000, guid: 30802e7969893d9fdb5de326652ed594, type: 2}
   - {fileID: 11400000, guid: 0ed318472d0b54224ba129988c4912a7, type: 2}
+  - {fileID: 11400000, guid: 4101f8470dc27e12c8adabfc12d9a250, type: 2}
   prefabItem: {fileID: 4019423035481912473, guid: fa9172ed1fd626949b0a35cd4daa178b, type: 3}
   contenedorItems: {fileID: 61874195307803354}
 --- !u!1 &8376438446774671929
