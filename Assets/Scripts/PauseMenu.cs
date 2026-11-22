@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+    private const string NombreEscenaMenuPrincipal = "MenuPrincipal";
+
     public static bool JuegoEsPausado = false;
     public static bool UIBloqueaCursor = false; 
 
@@ -14,6 +16,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject opcionesUI;
     [SerializeField] private Button botonControles;
     [SerializeField] private GameObject controlesUI;
+    [SerializeField] private Toggle toggleMostrarFps;
     private bool volverAOpcionesDesdeControles;
     public GameObject creditosUI;
 
@@ -21,10 +24,25 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private AchievementMenuUI achievementMenu;
     public static string EscenaPreviaCreditos = "";
 
+    private bool EsMenuPrincipal()
+    {
+        return SceneManager.GetActiveScene().name == NombreEscenaMenuPrincipal;
+    }
+
     void Update()
     {
         if (GameManager.Instance != null && GameManager.Instance.JuegoTerminado)
             return;
+
+        if (EsMenuPrincipal())
+        {
+            if (Cursor.lockState != CursorLockMode.None || !Cursor.visible)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            return;
+        }
 
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
     {
@@ -70,6 +88,13 @@ public class PauseMenu : MonoBehaviour
             botonControles.onClick.AddListener(AbrirControles);
         }
 
+        if (toggleMostrarFps != null)
+        {
+            bool mostrarFps = ContadorFps.EstaVisible();
+            toggleMostrarFps.SetIsOnWithoutNotify(mostrarFps);
+            toggleMostrarFps.onValueChanged.AddListener(CambiarVisibilidadFps);
+        }
+
         if (controlesUI != null)
         {
             controlesUI.SetActive(false);
@@ -101,8 +126,17 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 1f;
         JuegoEsPausado = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+
+        if (EsMenuPrincipal())
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
     private void OnDestroy()
     {
@@ -110,7 +144,18 @@ public class PauseMenu : MonoBehaviour
         {
             botonControles.onClick.RemoveListener(AbrirControles);
         }
+
+        if (toggleMostrarFps != null)
+        {
+            toggleMostrarFps.onValueChanged.RemoveListener(CambiarVisibilidadFps);
+        }
     }
+
+    private void CambiarVisibilidadFps(bool mostrar)
+    {
+        ContadorFps.SetVisible(mostrar);
+    }
+
     public void AbrirOpciones()
     {
         pauseMenuUI.SetActive(false);
@@ -178,7 +223,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         JuegoEsPausado = false;
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = false;
+        Cursor.visible = EsMenuPrincipal();
     }
 
     void Pausa()
@@ -217,5 +262,94 @@ public void CerrarCreditos()
     if (pauseMenuUI != null) pauseMenuUI.SetActive(true);
 }
 
+}
 
+public class ContadorFps : MonoBehaviour
+{
+    private const string MostrarFpsKey = "MostrarFPS";
+    private static ContadorFps instancia;
+    private static GUIStyle estiloContador;
+
+    private bool visible;
+    private int fpsActual;
+    private int framesContados;
+    private float tiempoTranscurrido;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ReiniciarInstancia()
+    {
+        instancia = null;
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void CrearInstancia()
+    {
+        if (instancia == null)
+            new GameObject(nameof(ContadorFps)).AddComponent<ContadorFps>();
+    }
+
+    private void Awake()
+    {
+        if (instancia != null && instancia != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instancia = this;
+        DontDestroyOnLoad(gameObject);
+        visible = EstaVisible();
+    }
+
+    private void Update()
+    {
+        if (!visible)
+            return;
+
+        framesContados++;
+        tiempoTranscurrido += Time.unscaledDeltaTime;
+        if (tiempoTranscurrido >= 0.25f)
+        {
+            fpsActual = Mathf.RoundToInt(framesContados / tiempoTranscurrido);
+            framesContados = 0;
+            tiempoTranscurrido = 0f;
+        }
+    }
+
+    private void OnGUI()
+    {
+        if (!visible)
+            return;
+
+        if (estiloContador == null)
+        {
+            estiloContador = new GUIStyle(GUI.skin.label)
+            {
+                fontSize = 24,
+                fontStyle = FontStyle.Bold,
+                alignment = TextAnchor.MiddleLeft
+            };
+        }
+
+        string texto = $"{fpsActual} FPS";
+        estiloContador.normal.textColor = Color.black;
+        GUI.Label(new Rect(13f, 13f, 150f, 38f), texto, estiloContador);
+        estiloContador.normal.textColor = Color.white;
+        GUI.Label(new Rect(11f, 11f, 150f, 38f), texto, estiloContador);
+    }
+
+    public static bool EstaVisible()
+    {
+        return PlayerPrefs.GetInt(MostrarFpsKey, 0) == 1;
+    }
+
+    public static void SetVisible(bool mostrar)
+    {
+        if (instancia == null)
+            new GameObject(nameof(ContadorFps)).AddComponent<ContadorFps>();
+
+        instancia.visible = mostrar;
+        PlayerPrefs.SetInt(MostrarFpsKey, mostrar ? 1 : 0);
+        PlayerPrefs.Save();
+    }
 }
