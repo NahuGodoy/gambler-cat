@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Item_LibreDeuda
   m_EditorClassIdentifier: Assembly-CSharp::ItemTiendaInfo
   nombre: Libre de deuda
-  icono: {fileID: 21300000, guid: 25211ee3342b793e1b8dfd8f44759da5, type: 3}
+  icono: {fileID: 21300000, guid: 7699447bfe54c4fdabb28eb401706651, type: 3}
   precio: 1
   categoria: 2
   tipo: 0
