@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Item_DobleSalto
   m_EditorClassIdentifier: Assembly-CSharp::ItemTiendaInfo
   nombre: Doble Salto
-  icono: {fileID: 21300000, guid: 4c6cd485e8f3be9dfbda805443d695f0, type: 3}
+  icono: {fileID: 21300000, guid: b07776b1b78b7c877ba890bfaea680ab, type: 3}
   precio: 1
   categoria: 1
   tipo: 0
