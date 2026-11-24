@@ -9308,6 +9308,10 @@ PrefabInstance:
       propertyPath: achievementMenu
       value: 
       objectReference: {fileID: 8405048531777898622}
+    - target: {fileID: 6709081926977540555, guid: c377dd17568d938c5a95060580b2ddce, type: 3}
+      propertyPath: toggleMostrarFps
+      value: 
+      objectReference: {fileID: 1672133606317664108}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
