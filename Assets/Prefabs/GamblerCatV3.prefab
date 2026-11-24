@@ -575,7 +575,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 40
   field of view: 90
   orthographic: 0
   orthographic size: 5
@@ -1839,7 +1839,7 @@ Animator:
   m_GameObject: {fileID: 5678828494819781334}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0a44ea6da089dfd438a13079ccd2f080, type: 3}
-  m_Controller: {fileID: 9100000, guid: efe4d34c95cc4981695a0f3d1d47e8b4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 369af320dd7427c008c824f6a89f9db9, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2739,7 +2739,7 @@ MonoBehaviour:
     FieldOfView: 90
     OrthographicSize: 5
     NearClipPlane: 0.3
-    FarClipPlane: 1000
+    FarClipPlane: 40
     Dutch: 0
     ModeOverride: 0
     PhysicalProperties:
