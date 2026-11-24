@@ -1102,4 +1102,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCVendedor
   tienda: {fileID: 7305456392136015304}
   avisoInteractuar: {fileID: 488654189973404932}
-  distanciaInteraccion: 2.5
+  distanciaInteraccion: 3.2

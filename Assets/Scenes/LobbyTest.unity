@@ -2791,7 +2791,7 @@ MonoBehaviour:
   scenarioOnePortalTransform: {fileID: 1356955083}
   scenarioTwoPortalTransform: {fileID: 1348581992}
   ruletaTransform: {fileID: 72097225}
-  portalInteractionRadius: 2.5
+  portalInteractionRadius: 3
   lobbyPortalUI: {fileID: 2100000002}
 --- !u!1 &231750902 stripped
 GameObject:
