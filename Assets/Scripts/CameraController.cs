@@ -45,6 +45,11 @@ public class CameraController : MonoBehaviour
         pitch = Mathf.Clamp(pitch, -20f, 60f);
 
         pivot.localRotation = Quaternion.Euler(pitch,yaw,0);
+
+        if (!lookFromGamepad)
+        {
+            lookInput = Vector2.zero;
+        }
     }
 
 

@@ -49,6 +49,21 @@ public class SplitScreenCamera : MonoBehaviour
         SetupCamera();
     }
 
+    private void LateUpdate()
+    {
+        if (!initialized)
+        {
+            return;
+        }
+
+        int currentPlayerCount = PlayerInput.all.Count;
+        if (currentPlayerCount != totalPlayers)
+        {
+            totalPlayers = currentPlayerCount;
+            SetupCamera();
+        }
+    }
+
     private void SetupCinemachineChannels(PlayerInput playerInput)
     {
         if (index < 0 || index >= 16)
