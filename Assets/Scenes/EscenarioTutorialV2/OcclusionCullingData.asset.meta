@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Assets/cocotero/textures/materials/Material.001.mat.meta
+guid: 87ecdf8642af8036588f210d1dfe7669
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+========
 guid: 240ac29fce38b5f8bbc569819d82f696
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 36300000
+>>>>>>>> origin/develop:Assets/Scenes/EscenarioTutorialV2/OcclusionCullingData.asset.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
