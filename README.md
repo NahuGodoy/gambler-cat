@@ -2,7 +2,7 @@
 
 **Gambler Cat** es un videojuego de plataformas 3D desarrollado por **Victory Entertainment** con Unity. Inspirado en los clásicos juegos de plataformas de acción y aventura, combina desafíos de precisión, combate, exploración y recolección con una estética colorida y una ambientación temática de casino.
 
-Acompañá a nuestro protagonista felino en una aventura donde cada ficha cuenta. Superá obstáculos, derrotá enemigos, conseguí recompensas y avanzá por distintos escenarios para recuperar tus ganancias y saldar una deuda.
+Acompañá a nuestro protagonista felino en una aventura donde cada ficha cuenta. Superá obstáculos, derrotá enemigos, conseguí recompensas y avanzá por distintos niveles para recuperar tus ganancias y saldar una deuda.
 
 El juego ofrece una experiencia dinámica y rejugable, con diferentes niveles de dificultad, mejoras desbloqueables, desafíos contrarreloj y progresión persistente.
 
@@ -16,7 +16,7 @@ El juego ofrece una experiencia dinámica y rejugable, con diferentes niveles de
 - **Obstáculos y desafíos:** trampas, proyectiles y plataformas que ponen a prueba tus reflejos.
 - **Power-ups:** habilidades temporales de invencibilidad, velocidad e imán de fichas.
 - **Sistema de checkpoints:** guardá tu progreso durante los niveles y reaparecé desde la última posición segura.
-- **Coleccionables:** encontrá fichas, objetos especiales y secretos escondidos en los escenarios.
+- **Coleccionables:** encontrá fichas, objetos especiales y secretos escondidos en los niveles.
 - **Sistema de progresión:** acumulá fichas y utilizalas en la tienda para conseguir mejoras.
 - **Dificultades:** elegí entre fácil, normal y difícil, cada una con sus propios desafíos y recompensas.
 - **Contrarreloj:** completá los niveles en el menor tiempo posible y superá tus propios récords.
@@ -29,23 +29,23 @@ El juego ofrece una experiencia dinámica y rejugable, con diferentes niveles de
 
 ### Lobby
 
-El centro principal de la aventura. Desde aquí podrás acceder a los diferentes escenarios, consultar tu progreso, visitar la tienda y participar en la ruleta de la fortuna.
+El centro principal de la aventura. Desde aquí podrás acceder a los diferentes niveles, consultar tu progreso, visitar la tienda y participar en la ruleta de la fortuna.
 
 ### Tutorial
 
 Aprendé las mecánicas fundamentales del juego mediante una introducción interactiva al movimiento, los saltos, los ataques, las interacciones y la recolección de fichas.
 
-### Escenario 1
+### Nivel 1
 
 Comenzá tu aventura en un recorrido lleno de plataformas, enemigos, obstáculos y coleccionables. Disponible en tres niveles de dificultad.
 
-### Escenario 2
+### Nivel 2
 
-Continuá la aventura enfrentándote a nuevos desafíos. Al igual que el primer escenario, cuenta con diferentes dificultades y registros de tiempo independientes.
+Continuá la aventura enfrentándote a nuevos desafíos. Al igual que el primer nivel, cuenta con diferentes dificultades y registros de tiempo independientes.
 
 ## 🪙 Progresión y economía
 
-Las fichas son la moneda principal de Gambler Cat. Podrás conseguirlas explorando los escenarios y recolectando objetos durante tus partidas.
+Las fichas son la moneda principal de Gambler Cat. Podrás conseguirlas explorando los niveles y recolectando objetos durante tus partidas.
 
 Las fichas obtenidas se acreditan al completar cada nivel y pueden utilizarse en la tienda para adquirir mejoras y beneficios.
 
@@ -59,7 +59,7 @@ Entre las posibilidades de progresión se encuentran:
 
 ### Dificultades
 
-Cada escenario ofrece tres dificultades:
+Cada nivel ofrece tres dificultades:
 
 | Dificultad | Multiplicador de fichas |
 |---|---:|
@@ -67,11 +67,11 @@ Cada escenario ofrece tres dificultades:
 | Normal | 2× |
 | Difícil | 3× |
 
-La dificultad también puede modificar la configuración de los checkpoints y los desafíos presentes en cada escenario.
+La dificultad también puede modificar la configuración de los checkpoints y los desafíos presentes en cada nivel.
 
 ## 🏆 Récords y logros
 
-El juego registra el mejor tiempo obtenido en cada escenario y dificultad, permitiendo comparar tus resultados y mejorar tus marcas.
+El juego registra el mejor tiempo obtenido en cada nivel y dificultad, permitiendo comparar tus resultados y mejorar tus marcas.
 
 Además, cuenta con un sistema de logros que registra diferentes hitos y actividades realizadas durante la aventura.
 
@@ -81,11 +81,11 @@ Gambler Cat cuenta con tres ranuras de guardado independientes.
 
 Cada partida conserva información sobre:
 
-- Estado del tutorial y escenarios desbloqueados.
+- Estado del tutorial y niveles desbloqueados.
 - Fichas acumuladas.
 - Coleccionables obtenidos.
 - Logros desbloqueados.
-- Récords de tiempo por escenario y dificultad.
+- Récords de tiempo por nivel y dificultad.
 - Mejoras y compras realizadas.
 
 Los datos se almacenan localmente mediante archivos JSON, permitiendo conservar el progreso entre sesiones.
