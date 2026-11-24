@@ -15,9 +15,9 @@ public class MenuButtons : MonoBehaviour
 #endif
     }
 
-        public void OpenSaveSelection()
+        public void ComenzarPartida()
     {
-        SceneManager.LoadScene("SaveSelection");
+        SceneManager.LoadScene("IntroPrueba");
     }
 
     public void MenuPrincipal()

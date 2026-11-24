@@ -47,6 +47,11 @@ public class SaveData
     {
         "vik", "nahu", "enzo", "vicu", "leo", "juan"
     };
+    private static readonly string[] AchievementIds = new string[]
+    {
+        "tutorial_completed", "escenario1_completed", "escenario2_completed",
+        "intocable", "todosloscoleccionables", "libre_de_deuda"
+    };
 
     public static SaveData CreateEmpty(int slotId)
     {
@@ -189,6 +194,18 @@ public class SaveData
             {
                 count++;
                 Debug.Log("llevas " + count + " coleccionables de 6");
+            }
+        }
+        return count;
+    }
+    public int ContarLogros()
+    {
+        int count = 0;
+        foreach (string id in AchievementIds)
+        {
+            if (HasAchievement(id))
+            {
+                count++;
             }
         }
         return count;
