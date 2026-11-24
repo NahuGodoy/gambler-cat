@@ -83,12 +83,12 @@ public class Tienda : MonoBehaviour
 
         
         if (Time.timeScale != 0f || !PauseMenu.JuegoEsPausado)
-        
-
-        Time.timeScale = 0f;
-        PauseMenu.JuegoEsPausado = true;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        {
+            Time.timeScale = 0f;
+            PauseMenu.JuegoEsPausado = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     public void Comprar(ItemTiendaInfo data)
@@ -112,16 +112,23 @@ public class Tienda : MonoBehaviour
         #endif */
 
         var save = SaveManager.Instance;
-        var sharedStats = SharedPlayerStats.GetOrCreate();
         if ( save == null || save.ActiveSave == null)
         {
             Debug.Log("[Tienda] No hay SaveManager activo tontin");
             return;
         }
 
-        if (sharedStats.cantFichas < data.precio || save.ActiveSave.totalFichas < data.precio)
+        if (save.ActiveSave.totalFichas < data.precio)
         {
             Debug.Log("[Tienda] No tenes suficientes fichas bleeeh");
+            return;
+        }
+
+        if (data.categoria == CategoriaItem.DobleSalto &&
+            PlayerMovement.Instance != null &&
+            PlayerMovement.Instance.dobleSaltoDesbloqueado)
+        {
+            Debug.Log("[Tienda] Ya tenés el doble salto");
             return;
         }
 
@@ -131,11 +138,6 @@ public class Tienda : MonoBehaviour
             return;
         }
         
-        if (sharedStats != null)
-        {
-            sharedStats.perderFichas(data.precio); 
-        }
-
         switch (data.categoria)
         {
             case CategoriaItem.PowerUp:
@@ -148,7 +150,7 @@ public class Tienda : MonoBehaviour
                 break;
 
             case CategoriaItem.DobleSalto:
-                // pendiente
+                save.SetDobleSalto(true);
                 break;
         }
         Debug.Log($"[Tienda] Compra exitosa de {data.nombre}");

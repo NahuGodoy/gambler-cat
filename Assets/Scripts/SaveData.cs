@@ -36,6 +36,7 @@ public class SaveData
     public bool tutorialCompleted;
     public bool map1Unlocked;
     public int totalFichas;
+    public bool dobleSaltoComprado;
     public List<BoolProgressEntry> unlockedMaps = new List<BoolProgressEntry>();
     public List<BoolProgressEntry> collectibles = new List<BoolProgressEntry>();
     public List<BoolProgressEntry> achievements = new List<BoolProgressEntry>();
@@ -45,6 +46,11 @@ public class SaveData
     private static readonly string[] EasterEggIds = new string[]
     {
         "vik", "nahu", "enzo", "vicu", "leo", "juan"
+    };
+    private static readonly string[] AchievementIds = new string[]
+    {
+        "tutorial_completed", "escenario1_completed", "escenario2_completed",
+        "intocable", "todosloscoleccionables", "libre_de_deuda"
     };
 
     public static SaveData CreateEmpty(int slotId)
@@ -192,4 +198,18 @@ public class SaveData
         }
         return count;
     }
+    public int ContarLogros()
+    {
+        int count = 0;
+        foreach (string id in AchievementIds)
+        {
+            if (HasAchievement(id))
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
+
 }

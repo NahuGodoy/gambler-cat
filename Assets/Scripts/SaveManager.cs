@@ -262,4 +262,11 @@ public class SaveManager : MonoBehaviour
             return 0;
         }
     }
+
+    public void SetDobleSalto(bool comprado = true)
+    {
+        RequireActiveSave();
+        ActiveSave.dobleSaltoComprado = comprado;
+        SaveActiveSlot();
+    }
 }

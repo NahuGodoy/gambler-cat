@@ -6,7 +6,7 @@ public class Creditos : MonoBehaviour
 {
     public float scrollSpeed = 40f;
     public float multiplicadorAcelerar = 3f;
-    public float posicionFinalY = 2500f; 
+    public float posicionFinalY = 9500f; 
 
     public GameObject panelCreditos;   
     public GameObject panelMenuPausa; 
