@@ -35,7 +35,7 @@ MonoBehaviour:
     displayName: Intocable
     description: "Completa un escenario sin recibir da\xF1o."
     unlockedDescription: "Completaste el escenario sin recibir da\xF1o."
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: f8d87fa9acaf6bfd9bd8f586225e9f19, type: 3}
     isPlaceholder: 0
   - id: todosloscoleccionables
     displayName: Coleccionista
@@ -47,5 +47,5 @@ MonoBehaviour:
     displayName: Libre de deuda
     description: Paga tu deuda
     unlockedDescription: El casino no te perseguira, se feliz :3
-    icon: {fileID: 21300000, guid: 4c6cd485e8f3be9dfbda805443d695f0, type: 3}
+    icon: {fileID: 21300000, guid: 7699447bfe54c4fdabb28eb401706651, type: 3}
     isPlaceholder: 0

@@ -5527,6 +5527,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: GamblerCatV3
       objectReference: {fileID: 0}
+    - target: {fileID: 7395208429989230134, guid: 32f22546bd0c08af7837bd18f5fda95d, type: 3}
+      propertyPath: onFichasCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4781390801009050633}
+    - target: {fileID: 7395208429989230134, guid: 32f22546bd0c08af7837bd18f5fda95d, type: 3}
+      propertyPath: onFichasCollected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateFichasTexto
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395208429989230134, guid: 32f22546bd0c08af7837bd18f5fda95d, type: 3}
+      propertyPath: onFichasCollected.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InventoryUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395208429989230134, guid: 32f22546bd0c08af7837bd18f5fda95d, type: 3}
+      propertyPath: onFichasCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17402,6 +17418,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e8d947f836038ef6abd5896ac8f9895, type: 3}
+--- !u!114 &4781390801009050633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1810029036752155273, guid: 9e8d947f836038ef6abd5896ac8f9895, type: 3}
+  m_PrefabInstance: {fileID: 4781390801009050632}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2675f965e3556c8468b0daf07f65f7f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
 --- !u!1 &9208862512925455123
 GameObject:
   m_ObjectHideFlags: 0
