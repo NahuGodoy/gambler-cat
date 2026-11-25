@@ -36,6 +36,16 @@ public class PauseMenu : MonoBehaviour
 
         if (EsMenuPrincipal())
         {
+            if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame &&
+                controlesUI != null && controlesUI.activeSelf)
+            {
+                ControlsMenuUI controlsMenu = FindAnyObjectByType<ControlsMenuUI>(FindObjectsInactive.Include);
+                if (controlsMenu == null || !controlsMenu.CancelRebindingIfActive())
+                {
+                    CerrarControles();
+                }
+            }
+
             if (Cursor.lockState != CursorLockMode.None || !Cursor.visible)
             {
                 Cursor.lockState = CursorLockMode.None;
