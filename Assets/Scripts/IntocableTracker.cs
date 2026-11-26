@@ -39,18 +39,33 @@ public static class IntocableTracker
 
     public static bool RegistrarVictoria()
     {
+        string escenario = SceneManager.GetActiveScene().name;
+        string escenarioNormalizado = escenario.ToLowerInvariant();
+
+        if (escenarioNormalizado.Contains("tutorial")) return false;
+
+        if (AchievementSystem.Instance != null)
+        {
+            if (escenarioNormalizado.Contains("escenariouno") || escenarioNormalizado.Contains("escenario1") || escenarioNormalizado.Contains("nivel1"))
+            {
+                AchievementSystem.Instance.Unlock(AchievementSystem.Escenario1CompletedId);
+            }
+
+            if (escenarioNormalizado.Contains("escenariodos") || escenarioNormalizado.Contains("escenario2") || escenarioNormalizado.Contains("nivel2"))
+            {
+                AchievementSystem.Instance.Unlock(AchievementSystem.Escenario2CompletedId);
+            }
+
+            if (Intocable)
+            {
+                AchievementSystem.Instance.Unlock(AchievementSystem.IntocableId);
+            }
+        }
+
         if (!Intocable) return false;
 
-        string escenario = SceneManager.GetActiveScene().name;
-        if (escenario.Contains("Tutorial")) return false; 
-
-        // Se registra por escenario y nunca se pisa lo anterior
+        // El logro Intocable se desbloquea con el primer escenario completado sin recibir daño.
         bool nuevoEnEsteEscenario = escenariosConLogro.Add(escenario);
-
-        if (AchievementSystem.Instance != null && escenariosConLogro.Count >= 2)
-        {
-            AchievementSystem.Instance.Unlock(AchievementSystem.IntocableId);
-        }
 
         if (nuevoEnEsteEscenario)
         {

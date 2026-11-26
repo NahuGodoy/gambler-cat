@@ -9996,6 +9996,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUpHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 4127108281364204514, guid: bed90e051a9130268868f69075dddb13, type: 3}
+      propertyPath: iconos.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f8d87fa9acaf6bfd9bd8f586225e9f19, type: 3}
     - target: {fileID: 5256728758295825566, guid: bed90e051a9130268868f69075dddb13, type: 3}
       propertyPath: m_LocalPosition.x
       value: -756.4
