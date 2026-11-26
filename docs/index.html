@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#21181b">
+    <meta name="description" content="Gambler Cat: una aventura de plataformas 3D, combate y fichas. La suerte te trajo hasta acá. El salto lo das vos.">
+    <meta property="og:title" content="Gambler Cat — cada ficha cuenta">
+    <meta property="og:description" content="Explorá, saltá y recuperá tu fortuna en esta aventura de plataformas 3D.">
+    <meta property="og:image" content="assets/hero.webp">
+    <title>Gambler Cat — Cada ficha cuenta</title>
+    <link rel="icon" type="image/png" href="assets/LogoVictoryEntertainment.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="#inicio" aria-label="Gambler Cat, inicio">
+        <span class="wordmark-mark" aria-hidden="true"><img src="assets/LogoVictoryEntertainment.png" alt=""></span>
+        <span>VICTORY <b>ENTERTAINMENT</b></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <a href="#aventura">La aventura</a>
+        <a href="#mecanicas">Mecánicas</a>
+        <a href="#controles">Controles</a>
+        <a class="nav-download" href="#descargas">Descargar <span aria-hidden="true">↓</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <img class="hero-image" src="assets/hero.webp" alt="Gambler Cat salta entre dados y cartas en una aventura de casino" fetchpriority="high">
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow"><span></span> Una aventura de plataformas 3D</p>
+          <h1 class="hero-logo" id="hero-title"><img src="assets/gambler-cat-logo.webp" alt="Gambler Cat"></h1>
+          <p class="hero-copy">La suerte te trajo hasta acá.<br>El salto lo das vos.</p>
+          <div class="hero-actions">
+            <a class="button button-gold" href="#descargas">Descargar juego <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#aventura">Conocé la aventura <span aria-hidden="true">↓</span></a>
+          </div>
+          <p class="hero-platforms">Disponible para Windows <span>·</span> Linux</p>
+        </div>
+        <div class="hero-index" aria-hidden="true">MUNDO <span>01</span></div>
+        <a class="scroll-cue" href="#aventura" aria-label="Desplazarse a la aventura"><span></span></a>
+      </section>
+
+      <section class="ticker" aria-label="Características del juego">
+        <div class="ticker-track">
+          <span>Saltá más alto</span><i>✳</i><span>Juntá fichas</span><i>✳</i><span>Recuperá tu fortuna</span><i>✳</i><span>Saltá más alto</span><i>✳</i><span>Juntá fichas</span><i>✳</i><span>Recuperá tu fortuna</span><i>✳</i>
+        </div>
+      </section>
+
+      <section class="story section-wrap" id="aventura" aria-labelledby="story-title">
+        <div class="story-copy reveal">
+          <p class="eyebrow eyebrow-dark"><span></span> La historia</p>
+          <h2 id="story-title">De la fortuna<br>a <em>cero fichas.</em></h2>
+          <p>Gambler Cat lo tuvo todo. Pero una racha de apuestas lo dejó con una deuda enorme y una sola salida: volver al casino, enfrentar cada desafío y recuperar lo que perdió.</p>
+          <a class="arrow-link" href="#mecanicas">Y esto recién empieza <span aria-hidden="true">↘</span></a>
+        </div>
+        <figure class="story-art reveal">
+          <img src="assets/historia.webp" alt="Viñetas que cuentan cómo Gambler Cat pasó de ganar en el casino a tener que saldar una deuda" loading="lazy">
+          <figcaption>Una mala racha. Un último intento.</figcaption>
+        </figure>
+      </section>
+
+      <section class="mechanics" id="mecanicas" aria-labelledby="mechanics-title">
+        <div class="section-wrap mechanics-inner">
+          <div class="section-heading reveal">
+            <p class="eyebrow"><span></span> Cada movimiento cuenta</p>
+            <h2 id="mechanics-title">La aventura<br>no se juega sola.</h2>
+          </div>
+          <div class="mechanic-list">
+            <article class="mechanic-item reveal">
+              <span class="mechanic-number">01</span><span class="mechanic-symbol" aria-hidden="true">↗</span>
+              <div><h3>Dominá el salto</h3><p>Corré, medí el tiempo y encontrá el camino. El doble salto se desbloquea en la aventura.</p></div>
+              <span class="mechanic-arrow" aria-hidden="true">↗</span>
+            </article>
+            <article class="mechanic-item reveal">
+              <span class="mechanic-number">02</span><span class="mechanic-symbol" aria-hidden="true">✳</span>
+              <div><h3>Plantate frente a todo</h3><p>Enemigos, trampas y proyectiles: cada nivel pide reflejos distintos.</p></div>
+              <span class="mechanic-arrow" aria-hidden="true">↗</span>
+            </article>
+            <article class="mechanic-item reveal">
+              <span class="mechanic-number">03</span><span class="mechanic-symbol" aria-hidden="true">◉</span>
+              <div><h3>La ficha es tuya</h3><p>Explorá cada rincón, reuní recompensas y mejorá tus posibilidades en la tienda.</p></div>
+              <span class="mechanic-arrow" aria-hidden="true">↗</span>
+            </article>
+            <article class="mechanic-item reveal">
+              <span class="mechanic-number">04</span><span class="mechanic-symbol" aria-hidden="true">⌁</span>
+              <div><h3>Jugá a tu manera</h3><p>Elegí dificultad, buscá tu mejor tiempo o compartí la partida en pantalla dividida.</p></div>
+              <span class="mechanic-arrow" aria-hidden="true">↗</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="luck section-wrap" aria-labelledby="luck-title">
+        <div class="luck-image reveal">
+          <img src="assets/gambler-cat-portrait.webp" alt="Gambler Cat rodeado de fichas en el casino" loading="lazy">
+          <span class="image-stamp">¿Todo<br>o nada?</span>
+        </div>
+        <div class="luck-copy reveal">
+          <p class="eyebrow eyebrow-dark"><span></span> En el lobby</p>
+          <h2 id="luck-title">Una vuelta<br>más a la <em>ruleta.</em></h2>
+          <p>Entre nivel y nivel, volvé al lobby: revisá tu progreso, pasá por la tienda y probá suerte en la ruleta de la fortuna.</p>
+          <div class="luck-facts"><span><b>3</b> dificultades</span><span><b>2</b> escenarios</span><span><b>∞</b> ganas de revancha</span></div>
+        </div>
+      </section>
+
+      <section class="difficulty" aria-labelledby="difficulty-title">
+        <div class="section-wrap difficulty-inner">
+          <div class="difficulty-heading reveal">
+            <p class="eyebrow"><span></span> Elegí el desafío</p>
+            <h2 id="difficulty-title">¿Qué tan<br>lejos llegás?</h2>
+          </div>
+          <div class="difficulty-options">
+            <div class="difficulty-option reveal"><span class="difficulty-dot easy"></span><div><h3>Fácil</h3><p>Para entrar en ritmo.</p></div><b>1×</b></div>
+            <div class="difficulty-option reveal"><span class="difficulty-dot normal"></span><div><h3>Normal</h3><p>La apuesta equilibrada.</p></div><b>2×</b></div>
+            <div class="difficulty-option reveal"><span class="difficulty-dot hard"></span><div><h3>Difícil</h3><p>Todo o nada.</p></div><b>3×</b></div>
+            <p class="difficulty-note">Multiplicador de fichas por dificultad.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls section-wrap" id="controles" aria-labelledby="controls-title">
+        <div class="controls-intro reveal">
+          <p class="eyebrow eyebrow-dark"><span></span> A los controles</p>
+          <h2 id="controls-title">Manos listas.<br><em>Deuda pendiente.</em></h2>
+          <p>Teclado, ratón o mando. Cambiá las asignaciones desde el menú de opciones.</p>
+        </div>
+        <div class="controls-table reveal" role="table" aria-label="Controles del juego">
+          <div class="control-row control-header" role="row"><span role="columnheader">Acción</span><span role="columnheader">Teclado</span><span role="columnheader">Mando</span></div>
+          <div class="control-row" role="row"><span role="cell">Moverse</span><kbd role="cell">W A S D</kbd><span role="cell">Stick izquierdo</span></div>
+          <div class="control-row" role="row"><span role="cell">Saltar</span><kbd role="cell">ESPACIO</kbd><span role="cell">Botón sur</span></div>
+          <div class="control-row" role="row"><span role="cell">Correr</span><kbd role="cell">SHIFT</kbd><span role="cell">Stick izquierdo</span></div>
+          <div class="control-row" role="row"><span role="cell">Atacar</span><kbd role="cell">ENTER / CLIC</kbd><span role="cell">Botón oeste</span></div>
+          <div class="control-row" role="row"><span role="cell">Interactuar</span><kbd role="cell">E</kbd><span role="cell">Botón norte</span></div>
+          <div class="control-row" role="row"><span role="cell">Pausar</span><kbd role="cell">ESC</kbd><span role="cell">Botón este</span></div>
+        </div>
+      </section>
+
+      <section class="download" id="descargas" aria-labelledby="download-title">
+        <div class="download-image" aria-hidden="true"></div>
+        <div class="download-content reveal">
+          <p class="eyebrow"><span></span> Victory Entertainment presenta</p>
+          <h2 id="download-title">La próxima<br>ficha puede<br>ser <em>la tuya.</em></h2>
+          <div class="download-actions">
+            <a class="download-option button-gold" href="https://github.com/NahuGodoy/proyecto-labo-principal/releases/download/1.0.0/GamblerCatWindows.zip" target="_blank" rel="noreferrer"><span>Windows</span><small>Descargar .zip</small><b aria-hidden="true">↓</b></a>
+            <a class="download-option button-gold" href="https://github.com/NahuGodoy/proyecto-labo-principal/releases/download/1.0.0/GamblerCatLinux.zip" target="_blank" rel="noreferrer"><span>Linux</span><small>Descargar .zip</small><b aria-hidden="true">↓</b></a>
+            <a class="download-option download-releases" href="https://github.com/NahuGodoy/proyecto-labo-principal/releases" target="_blank" rel="noreferrer"><span>GitHub</span><small>Todas las releases</small><b aria-hidden="true">↗</b></a>
+          </div>
+          <p class="download-note">Windows y Linux · Revisá las instrucciones incluidas en cada versión.</p>
+        </div>
+        <span class="download-side-note" aria-hidden="true">TU TURNO</span>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="wordmark footer-mark" href="#inicio"><span class="wordmark-mark" aria-hidden="true"><img src="assets/LogoVictoryEntertainment.png" alt=""></span><span>VICTORY <b>ENTERTAINMENT</b></span></a>
+      <p>Un juego de <a href="https://github.com/NahuGodoy" target="_blank" rel="noreferrer">Victory Entertainment</a>.</p>
+      <div class="footer-links"><a href="https://github.com/NahuGodoy/proyecto-labo-principal" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://github.com/NahuGodoy/proyecto-labo-principal/releases" target="_blank" rel="noreferrer">Releases ↗</a></div>
+      <small>© 2026 Victory Entertainment</small>
+    </footer>
+  </body>
+</html>
