@@ -147,6 +147,22 @@ kbd { justify-self: start; padding: 4px 6px; border: 1px solid rgba(23,29,25,.25
 @keyframes scroll-pulse { 50% { transform: translateY(6px); } }
 @keyframes ticker { to { transform: translateX(-50%); } }
 
+.trailer { background: #241a1d; color: var(--white); }
+.trailer-inner { display: grid; grid-template-columns: .68fr 1.32fr; align-items: center; gap: 7%; padding-block: 110px; }
+.trailer-heading h2 { margin: 0; font-family: var(--display); font-size: 72px; line-height: .88; text-transform: uppercase; }
+.trailer-link { display: inline-flex; align-items: center; gap: 18px; margin-top: 28px; color: var(--gold); font-size: 13px; font-weight: 700; }
+.trailer-link span { font-size: 17px; }
+.trailer-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid rgba(240,198,94,.42); border-radius: 3px; background: #100d0e; box-shadow: 18px 18px 0 rgba(112,34,53,.52); }
+.trailer-cover { position: absolute; inset: 0; display: block; overflow: hidden; background: #100d0e; }
+.trailer-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease, filter .5s ease; }
+.trailer-cover:hover img { transform: scale(1.025); filter: brightness(.82); }
+.trailer-play { position: absolute; top: 50%; left: 50%; display: grid; width: 64px; height: 64px; place-items: center; transform: translate(-50%, -50%); border: 2px solid var(--gold); border-radius: 50%; background: rgba(112,34,53,.92); box-shadow: 0 12px 30px rgba(0,0,0,.28); transition: transform .25s ease, background .25s ease; }
+.trailer-play > span { width: 0; height: 0; margin-left: 5px; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 15px solid var(--gold); }
+.trailer-cover:hover .trailer-play { transform: translate(-50%, -50%) scale(1.08); background: var(--burgundy); }
+.trailer-duration { position: absolute; right: 14px; bottom: 12px; padding: 7px 9px; background: var(--gold); color: var(--ink); font-family: var(--display); font-size: 11px; font-weight: 800; }
+
+/* Trailer uses an external YouTube link with a local cover image. */
+
 @media (max-width: 900px) {
   .site-header { padding-inline: 5%; }
   .hero-content { width: 70%; margin-left: 7%; }
@@ -161,6 +177,8 @@ kbd { justify-self: start; padding: 4px 6px; border: 1px solid rgba(23,29,25,.25
   .controls { gap: 6%; padding-block: 95px; }
   .site-footer { grid-template-columns: 1fr 1fr; }
   .site-footer small { text-align: left; }
+  .trailer-inner { grid-template-columns: .72fr 1.28fr; gap: 5%; }
+  .trailer-heading h2 { font-size: 62px; }
 }
 
 @media (max-width: 640px) {
@@ -225,6 +243,10 @@ kbd { justify-self: start; padding: 4px 6px; border: 1px solid rgba(23,29,25,.25
   .site-footer p { justify-self: end; text-align: right; }
   .footer-links { gap: 13px; }
   .site-footer small { justify-self: end; text-align: right; }
+  .trailer-inner { grid-template-columns: 1fr; gap: 32px; padding-block: 74px 82px; }
+  .trailer-heading h2 { font-size: 58px; }
+  .trailer-link { margin-top: 20px; }
+  .trailer-frame { box-shadow: 8px 8px 0 rgba(112,34,53,.52); }
 }
 
 @media (max-width: 360px) {
